@@ -1,0 +1,163 @@
+--? Why is Git Around ??
+--> It is a version control sysytem.Software is evolved over a period of time.
+    So its important to Track changes.
+    Easy file recovery.
+    Who introduced an issue when.
+    Rollback to previous working state
+    
+
+--? History Of VCS
+--> 1.LOCAL VCS
+    Pros-Rollback
+    Cons-if you lose your HDD everything is lost.
+
+--> 2.CENTRALISED VCS
+    Concept of server.
+
+    SERVER ----------FILES PULLED--------->USER
+           <---------FILES PUSHED---------
+
+    If server damage data might be lost.
+
+--> 3.DISTRIBUTED VCS(GIT,GITHUB)
+        
+            SERVER ----------FILES PULLED--------->USER(Have Complete Backup + changes)
+
+(Repository copied)<---------FILES PUSHED---------
+
+    If Server lost client has copy and changes to project.
+    
+
+--? How was GIT created?
+--> Linus development was done using zip and patches.As linux grew Linus Torworld
+    used BITKEEPER VCS
+    
+    BITKEEPER ANNOUNCED TO HIKE PRICES IN 2005
+    
+    SO created GIT
+  
+    GITHUB IS HOSTING SERVICE FOR GIT.
+
+--? Features of GIT
+--> Captures Snapshot not differences.
+   .git folder ahs history of whole project
+   Almost every operation is local.
+   GIT genrally adds data.
+   
+--? GIT COMMANDS
+--> git,git status,git config --global user.name/email "",git config --list
+    git config user.name/email,git init,git add --a,git commit -m "",git log
+    git add filename,rm -rf .git(deletes . git file not git repository anymore)
+    git clone, ls,cd,pwd,touch file name (to crerate new file in dest folder)
+    git diff (compares working directory with staging area) git diff--staged
+    (compares our last commit to present staging area)
+    git commit -a -m ""(directly commits the tracked files without going to staging area)
+    git rm folder name (removed the folder and directly stages),git mv OLD file name New file name
+    (chnages the nam of file from old to new),git rm --cached filename,git log -p(shows waht is committees and changesmade
+    git log --stat(summary of commits),git log --pretty=one line/short/full(shows all commits in one line),git log --since=2.days/months/weeks
+    (give all commits for days months or weeks),git log --pretty=format:(search for git scm useful options for git
+    in google various options after format is used to sort the commits on different basis),git commit --amend
+    (used to add the changes to last commit or add changes to last commit),
+    git restore --staged file name (to instage file from staging area),git checkout -- filename
+    git checkout -f(brings u back to last commited stage the changes you made will lost)
+    git remote,git push -u origin master,git config --global alias.newname old command name
+    (if you want git status as git st do alias),git checkout -b branchname(switches to new
+    branch),git checkout master(to go back to master branch),git branch (shows all branches)
+    git merge branch name to be merged with master,git branch -v(gives commit hash branches commit msgs)
+    git branch --merged(shows all branches we have merged already),git branch --no-merged(not already merged branches)
+    git branch -d branch name(gives warning when branch is not merged merged branch will get deleted otherwise..warns)
+    and do git branch -D branch name in next step for non merged,git origin branchname
+    (in git the the added brranch to master is not pushed automatically to github,so we 
+    explicitly got to that branch and run this command,stay in branch you want to push)
+    git push -d branchname (to delete branch from github thta being pushed)
+
+    
+
+    
+    
+    
+
+
+
+
+
+--? LOCAL OPERATIONS
+--> WORKING DIRECTORY -----STAGING AREA-----GIT REPOSITORY
+    ---------------Staging area----->-------Commit------->
+    <--------------------CHECKOUT THE PROJECT------------- 
+
+    When we stage it means we are ready to commit
+
+
+--? File Operations
+--> untracked-----(add the file)--->unmodified-----(edit the file)----->modified------(stage the file)------>staged
+             <-----(remove the file)----------|<--------------------------(commit)---------------------------------|    
+   
+         
+--? How to ignore a file you dont want to commit?
+--> use .gitignore and add that file name into that and save !
+    the file name added in .gitignore wont be tracked now 
+    If you have multiple files then do this in .git ignore file
+    *.(extension file you dont want to track)
+    if i want to ignore whole directory do this in .gitignore
+    foldername/
+    Git by default ignores blank folder
+--? Git Diff
+--> It compares working directory with staging area ie 
+    what i did i made changes to a folder and did git add --a
+    this folder is in staging area
+    now i again make changes to it and save it and run git status
+    it show that this file is not tracked (in red)
+    therefore there are two versions of this file one in staging area and other in 
+    working directory so git diff tells about the changes of both areas
+
+--? Git -a -m ""
+--> It directly adds TRACKED files to commit without going to staging area
+    if file is not TRACKED it cannot be sent directly to commit
+
+--? git rm --cached file name
+--> If a file is already tracked assume to.exel now i added this file to gitignore 
+    so if i now run git status it will show changes made in gitignore so i commit it
+    now if i make changes to to.exel it must not reflect in bash but when i make changes to 
+    this file and check bash i see it shows changs made to to.exel so i have to 
+    remove the track of git to this file which was alreading tracking it using this command 
+    ***WE HAVE TO EXPLICITLY UNTRACK IT***
+
+--? Git checkout --filename
+--> If you have made changes to a file or deleted its content now if u say git status 
+    it will show modified but by mistake u made changes and want ot get back to it
+    use this command this command will bring your file to last commited stage and will 
+    restore it last committed changes and the working tree gets cleaned ie committed.
+
+--? Pull Vs Push
+--> PULL brings code from github to our PC  while PUSH is used to put files from pc to 
+    Github
+
+--? Branching of git
+--> Branching in git is used to do parallel work from master branch the changes in the new branch 
+    do not reflect to master until we want to.If i make changes into the new branch ie deleted some files from the 
+    folder which is being tracked after switching to main branch ill get those folders back without any changes to
+    the main branch folder.
+    Branch is not pushed to github automatically we have to push it.
+                           
+                           |(branch name =develop)----o----o
+                           |
+   (Master)o----o----o----<-----o----o------o
+                           |
+                           |(branch name =hello)-------o----o----o----o
+
+
+--? Merge Conflicts
+--> These arise when we merge a branch to master and our git asks about some changes
+    that requires users attention to be included ie git isnt able to merge it.
+    git add file name is used to mark merge conflicts.
+    after merge conflict is resolved a new commit is added with selected changes into main branch
+   
+    If youre chnging the branch the branch youre leaving should be clean ie nothing remain to be committeed
+    For more info -https://www.youtube.com/watch?v=nfOxUaA2trY&list=PLu0W_9lII9agwhy658ZPA0MTStKUJTWPi&index=17
+
+
+--?Branching Workflow
+--> 1. Long Running---> stay till project goes on (master ,develop,idea)
+
+    2. Topic Branches---> Ends when a topic is completed and integrated.
