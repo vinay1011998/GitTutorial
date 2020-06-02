@@ -32,7 +32,7 @@ Link-https://www.youtube.com/playlist?list=PLu0W_9lII9ahVQekD7ePHmnirTePXwIln
     
 
 --? How was GIT created?
---> Linus development was done using zip and patches.As linux grew Linus Torvards
+--> Linus development was done using zip and patches.As linux grew Linus Torvalds
     used BITKEEPER VCS
     
     BITKEEPER ANNOUNCED TO HIKE PRICES IN 2005
