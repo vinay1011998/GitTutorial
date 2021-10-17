@@ -164,3 +164,21 @@ Link-https://www.youtube.com/playlist?list=PLu0W_9lII9ahVQekD7ePHmnirTePXwIln
 --> 1. Long Running---> stay till project goes on (master ,develop,idea)
 
     2. Topic Branches---> Ends when a topic is completed and integrated.
+
+## Some more commands with explaination
+1. git restore --staged file_name : Done to change file back into the staging(untracked files) i.e after git add it revert back to git status.
+2. git reset last_3rd_commit_id : wish to remove any specific commit from git log/history.Commits are build one over the other if you want to delete last 2 commits then copy the commit id of last 3rd commit. Now the first 2 commit files changes are in the staging area.
+3. git remote -v : shows all the urls attached to the folder.
+4. git merge branch_name - to merge branch into other.
+5. git remote add upstream url : from where you have forked the project is known as Upstream url by convention. This is done when we want to contribute to the project and fork it and make changes in local i.e Open Source Contribution. Origin is your personal.
+6. git fetch --all --prune : fetch all the commit from the upstream(remote) branch and also fetch the deleted commits(prune)
+7. git reset --hard upstream/main : reset to the main branch of upstream so that we can maintain the remote main with our repo(local) main and see the commits that are being added to the main of the upstream.
+8. then do - git push origin main : to make changes to our main branch.
+9. git pull upstream main : is same as steo from 6-8. Basically, pull = fetch + merge
+10. git rebase -i commit_id : above which you aregoing to merge all the commits in a one single commit
+pick d8279dd8 1
+s vw13414hw 2 --> s stands for squish
+s g234wu453 3
+pick s53265 4 --> pick means I am taking this commmit.
+then use :x to mention the message for new commit.
+==> the first three commit will be merge to commit 1 and 4th commit is treated as individual commit.
