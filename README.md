@@ -52,6 +52,6 @@ DETAIL:  Key (id)=(6) already exists.
    - s g234wu453 3
    - pick s53265 4  --> pick means I am taking this commmit.
    - then use :x to mention the message for new commit. 
-   -   ==> the first three commit will be merge to commit 1 and 4th commit is treated as individual commit.
+   ==> the first three commit will be merge to commit 1 and 4th commit is treated as individual commit.
 
 ## Note : One branch is associated with 1 pull request, you can not create multiple pull request with single branch.
